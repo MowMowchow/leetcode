@@ -1,9 +1,5 @@
-count = 0
-n = int(input())
-while n > 0:
-  for j in range(0, n):
-    count += 1
+arr = [[1, 2], [10, 3], [5, 22], [6, 1]]
 
-  n//=2
+arr.sort(key=lambda x: x[0])
 
-print (count)
+print(arr)
