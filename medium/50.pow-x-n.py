@@ -16,9 +16,7 @@ class Solution:
             x *= x
             n >>= 1
 
-        
         return (result if original_pow > -1 else result**(-1))
         
 # @lc code=end
 
-    
