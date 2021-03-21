@@ -8,5 +8,6 @@
 class Solution:
   def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
     # just keep k bars withing the array -> start all of them on the left together
+    # 
 # @lc code=end
 
