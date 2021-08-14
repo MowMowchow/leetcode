@@ -6,7 +6,13 @@
 
 # @lc code=start
 class Solution:
-    def threeSumClosest(self, nums: List[int], target: int) -> int:
+  def threeSumClosest(self, nums: List[int], target: int) -> int:
+    N = len(nums)
+    nums.sort()
+    
+    for i in range(2, N-1):
+			
+
         
 # @lc code=end
 
