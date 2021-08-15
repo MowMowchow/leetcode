@@ -11,21 +11,34 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    # next node is 2^(level-1) indexes away
-    # left = [2^(level): 2^(level)+1] <- from parent
-    # right = [2^(level)+1: 2^(level)+2] <- from parent
-    # have a base case for 0
-    # need to know if current node is left or right to choose recurse
-    def dfs(self, curr, depth, root, length, targetSum):
-        if length == targetSum:
-            return True
-        else:
-            left = (dfs(curr+2**(depth)))
-
-    def hasPathSum(self, root: TreeNode, targetSum: int) -> bool:
-        
-
-        
+  
+  def dfs(self, curr, total, k):
+    if not curr.right and not curr.left:
+      if total + curr.val == k:
+        return True
+    
+    res = False
+    if curr.left:
+      res  = self.dfs(curr.left, total+curr.val, k)
+    if res:
+      return res
+    if curr.right:
+      res = self.dfs(curr.right, total+curr.val, k)
+      
+    return res
+  
+  def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+    if not root:
+      return 0
+    
+    return self.dfs(root, 0, targetSum) 
+    
 # @lc code=end
 
