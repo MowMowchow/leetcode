@@ -6,22 +6,24 @@
 
 # @lc code=start
 class Solution:
-	def productExceptSelf(self, nums: List[int]) -> List[int]:
-		n = len(nums)
-		out = [1 for x in range(len(nums))]
-		temp = [1 for x in range(len(nums))]
-		
-		for i in range(1, n):
-			out[i] *= out[i-1]
-			out[i] *= nums[i-1]
+  def productExceptSelf(self, nums: List[int]) -> List[int]:
+    N = len(nums)
+    answer = [x for x in nums]
+    
+    for i in range(N-2, 0, -1):
+      answer[i] *= answer[i+1]
+    
+    for i in range(1, N):
+      nums[i] *= nums[i-1]
+    
+    answer[0] = answer[1]
 
-		for i in range(n-2, -1, -1):
-			temp[i] *= temp[i+1]
-			temp[i] *= nums[i+1]
-			out[i] *= temp[i]
-		
-		return out
-
-
+    for i in range(1, N-1):
+      answer[i] = answer[i+1]*nums[i-1]
+      
+    answer[N-1] = nums[N-2]
+    
+    return answer
+        
 # @lc code=end
 
