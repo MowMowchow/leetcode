@@ -18,6 +18,6 @@ class Solution:
         dp[i] = min(dp[i], dp[i-j]+cost[i])
         
     return min(dp[N-1], dp[N-2])    
-    
+
 # @lc code=end
 
