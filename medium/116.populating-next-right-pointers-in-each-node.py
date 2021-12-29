@@ -32,5 +32,23 @@ class Solution:
           q.append(list([curr.right, level+1]))
 
     return root
+
+# Constant Space Solution Below:
+class Solution:
+  def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+  
+    def dfs(curr):
+      if curr:
+        if curr.left and curr.right:
+          curr.left.next = curr.right
+          if curr.next:
+            curr.right.next = curr.next.left
+          dfs(curr.left)
+          dfs(curr.right)
+      
+      return root
+    
+    return dfs(root)
+
 # @lc code=end
 
