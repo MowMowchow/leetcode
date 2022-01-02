@@ -7,14 +7,12 @@ class Solution:
     adj = [[] for x in range(N+1)]
     indeg = [[] for x in range(N+1)]
     cycles = [[] for x in range(N+1)]
-    edges = {}
     cyclenumber = 0
     seated = []
     
     for i in range(N):
       adj[i+1].append(favorite[i]+1)
       indeg[favorite[i]+1].append(i+1)
-      edges[(i+1, favorite[i]+1)] = 1
     
     
     def dfs(u, p):
