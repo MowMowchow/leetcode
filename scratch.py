@@ -1,5 +1,6 @@
-arr = [[1, 2], [10, 3], [5, 22], [6, 1]]
-
-arr.sort(key=lambda x: x[0])
-
-print(arr)
+class Solution:
+  def shortestPath(self, grid: List[List[int]], k: int) -> int:
+    R = len(grid)
+    C = len(grid[0])
+    moves = [[0, 1], [1, 0], [-1, 0], [0, -1]]
+    
