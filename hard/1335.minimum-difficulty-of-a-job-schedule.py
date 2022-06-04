@@ -19,4 +19,4 @@ class Solution:
       
     return dp[N][0] if dp[N][0] != float("inf") else -1
   
-        
+       
