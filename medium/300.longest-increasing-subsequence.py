@@ -23,6 +23,21 @@ class Solution:
     
     
     return ans          
+
+# ~~~~~~~~~~~
+
+class Solution:
+  def lengthOfLIS(self, nums: List[int]) -> int:
+    N = len(nums)
+    seq = []
+    
+    for i in range(N):
+      if not seq or seq[-1] < nums[i]:
+        seq.append(nums[i])
+      else:
+        seq[bisect_left(seq, nums[i])] = nums[i]
+    
+    return len(seq)
               
 # @lc code=end
 
